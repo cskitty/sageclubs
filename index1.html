@@ -1,0 +1,64 @@
+---
+layout: default
+title: Home
+---
+
+<section id="home-about" class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">{{ site.title }}</h1>
+        <p class="lead">Events, Announcements, News</p>
+        <hr class="lead-4" />
+        <!-- <p>Work on projects and discuss interesting topics in the Linux &amp; open source communities.</p> -->
+        <p>The Online Town Center for Sage Hill Student Activities</p>
+    </div>
+</section>
+
+<section id="do-stuff" class="container">
+    <div class="row" style="margin-bottom:-1.2em;">
+        <div class="col-12 col-md-6" style="margin-bottom:1.2em;">
+            <h2>Clubs</h2>
+            <div class="list-group">
+                <a href="/about" class="list-group-item list-group-item-action">Model United Nations</a>
+                <a href="/librecorps" class="list-group-item list-group-item-action">FutureLabs</a>
+                <a href="/open-rit" class="list-group-item list-group-item-action">PoemWriting</a>
+                <a href="/events" class="list-group-item list-group-item-action">GiveBack</a>
+                <a href="/projects" class="list-group-item list-group-item-action">Robotics</a>
+                <a href="/people" class="list-group-item list-group-item-action">Publications</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6" style="margin-bottom:1.2em;">
+            <h2>Participate</h2>
+            <div class="list-group">
+                <a href="/announcements" class="list-group-item list-group-item-action">Announcements</a>
+                <a href="/calendar" class="list-group-item list-group-item-action">Calendar</a>
+                <a href="https://fossrit.community/" class="list-group-item list-group-item-action">Discourse (forums)</a>
+                <a href="https://riot.im/app/#/room/#ritfoss:matrix.org" class="list-group-item list-group-item-action">Matrix/Riot (<code>#ritfoss:matrix.org)</code></a>
+                <a href="https://webchat.freenode.net/#rit-foss" class="list-group-item list-group-item-action">Freenode IRC (<code>#rit-foss</code>)</a>
+                <a href="https://telegram.me/fossrit" class="list-group-item list-group-item-action">Telegram (<code>@fossrit</code>)</a>
+                <a href="https://people.rit.edu/djaigm/planet/hfoss/" class="list-group-item list-group-item-action">Student blog posts</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="container">
+    <h1>Latest News <a href="/announcements/"><i class="fas fa-envelope icon-orange"></i></a> </h1>
+
+    {% for post in site.categories.announcements limit: 5 %}
+    <article class="card">
+        <div class="card-body">
+            <h2>{{ post.title }}</h2>
+            <p><em>{{ post.date | date_to_long_string }}</em></p>
+            {% comment %} http://briankhuu.com/blog/self/jekyll/2014/12/03/post-truncation-in-jekyll.html {% endcomment %}
+            {% assign truncatedContent = '' %}
+            {% assign paragraphs = post.content | split:'</p>' %}
+            {% for paragraph in paragraphs limit:5 %}
+                {{ truncatedContent | append: paragraph }}
+                {{ truncatedContent | append: '</p>' }}
+            {% endfor %}
+            <a class="btn  btn-block" href="{{ post.url }}">Continue reading…</a>
+        </div>
+    </article>
+    {% endfor %}
+</section>

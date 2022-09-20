@@ -1,0 +1,59 @@
+###############################################################################
+#                                                                             #
+#                            WEBSITE CONFIGURATION                            #
+#                                                                             #
+###############################################################################
+
+# --- base website settings ---
+
+title: Sage Hill School Clubs
+title-abbrev: clubs@SageHill
+description: > # this symbol ignores newlines
+  A Online Town center for Sage Hill School Clubs.
+
+# --- general settings ---
+
+email: sj@magic.rit.edu
+github-repo: "https://github.com/FOSSRIT/fossrit.github.io"
+seo_keywords: > # this symbol ignores newlines
+  "FOSS@MAGIC",
+  "FOSSRIT",
+  "RIT FOSS",
+  "RIT MAGIC Center",
+  "Rochester Institute of Technology",
+  "Open@RIT",
+  "open source",
+  "Stephen Jacobs"
+twitter_account: "@RITMAGIC"
+url: "https://fossrit.github.io"
+
+# --- events page settings ---
+
+page_events:
+  description: "Upcoming events in RIT FOSS community"
+
+# --- build settings ---
+
+# https://jekyllrb.com/docs/continuous-integration/travis-ci/
+exclude:
+  - build.sh
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.txt
+  - Rakefile
+  - README.md
+  - vendor
+excerpt_separator: <!--more-->
+future: true # allow events in the future (for calendar feed)
+markdown: kramdown
+permalink: pretty # no .html extensions
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# --- meeting schedule settings ---
+
+# They appear exactly as typed. Follow the format already here when updating.
+meeting-day: Thursday
+meeting-place: Jitsi (see Calendar)
+meeting-time: 5:00PM - 6:00PM

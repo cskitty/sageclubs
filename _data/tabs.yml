@@ -1,0 +1,28 @@
+---
+- name: Home
+  link: /
+
+- name: About
+  dropdown:
+    - name: About
+      link: /about/
+    - name: LibreCorps
+      link: /librecorps/
+    - name: Open@RIT
+      link: /open-rit/
+    - name: Events
+      link: /events/
+    - name: Projects
+      link: /projects/
+
+- name: Announcements
+  link: /announcements/
+
+- name: Calendar
+  link: /calendar/
+
+- name: People
+  link: /people/
+
+- name: Get Involved
+  link: /get-involved/

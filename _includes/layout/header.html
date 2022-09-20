@@ -1,0 +1,39 @@
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/">
+                <img src="img/sagelogo.png" alt="Home" class="d-inline-block align-top" style="height:60px;" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                {% for tab in site.data.tabs %}
+                    {% if tab.dropdown %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ tab.name }}</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for ditem in tab.dropdown %}
+                                <a class="dropdown-item" href="{{ ditem.link }}">{{ ditem.name }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                    {% else %}
+                        {% if page.url == tab.link %}
+                        <li class="nav-item active">
+                        {% else %}
+                        <li class="nav-item">
+                        {% endif %}
+                            <a class="nav-link" href="{{ tab.link }}">{{ tab.name }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </nav>
+        <a href="https://sagehillschool.org" class="d-none d-lg-block">
+            <img style="z-index: 10; position: absolute; top: 0; right: 0; border: 0;  width:15%;" src="img/towncenter.png" alt="Fork me on GitHub">
+        </a>
+      </header>
